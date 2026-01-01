@@ -28,20 +28,3 @@ dnf5 -y install gnome-shell-extension-logo-menu
 
 #systemctl enable podman.socket
 systemctl enable smb nmb
-
-#### Configure gsettings & DCONF settings
-dconf write /org/gnome/shell/extensions/dash-to-dock/dock-position "'LEFT'" && \
-dconf write /org/gnome/shell/extensions/dash-to-dock/apply-custom-theme "true" && \
-dconf write /org/gnome/shell/extensions/dash-to-dock/background-opacity "0.80" && \
-dconf write /org/gnome/shell/extensions/dash-to-dock/dock-position "'BOTTOM'" && \
-dconf write /org/gnome/shell/extensions/dash-to-dock/click-action "'minimize-or-overview'" && \
-dconf write /org/gnome/shell/extensions/dash-to-dock/custom-theme-shrink "true" && \ 
-dconf write /org/gnome/shell/extensions/dash-to-dock/dash-max-icon-size "42" && \
-dconf write /org/gnome/shell/extensions/dash-to-dock/disable-overview-on-startup "true" && \ 
-dconf write /org/gnome/shell/extensions/dash-to-dock/dock-fixed "true" && \
-dconf write /org/gnome/shell/extensions/dash-to-dock/extend-height "true" && \ 
-dconf write /org/gnome/shell/extensions/dash-to-dock/height-fraction "0.90" && \
-dconf write /org/gnome/shell/extensions/dash-to-dock/icon-size-fixed "true" && \
-gsettings set org.gnome.desktop.wm.preferences button-layout ":minimize,maximize,close" && \
-gsettings set org.gnome.software allow-updates false && \
-gsettings set org.gnome.software packaging-format-preference "['flatpak:flathub', 'flatpak', 'rpm']"
