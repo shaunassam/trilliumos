@@ -45,6 +45,3 @@ dconf write /org/gnome/shell/extensions/dash-to-dock/icon-size-fixed "true" && \
 gsettings set org.gnome.desktop.wm.preferences button-layout ":minimize,maximize,close" && \
 gsettings set org.gnome.software allow-updates false && \
 gsettings set org.gnome.software packaging-format-preference "['flatpak:flathub', 'flatpak', 'rpm']"
-
-#### Remove unwanted Flatpaks
-flatpak uninstall --delete-data org.gnome.Extensions
