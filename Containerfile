@@ -37,9 +37,6 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     /ctx/build.sh && \
     rpm-ostree override remove firefox firefox-langpacks && \
     sed -i 's/#AutomaticUpdatePolicy.*/AutomaticUpdatePolicy=stage/' /etc/rpm-ostreed.conf && \
-    gsettings set org.gnome.desktop.wm.preferences button-layout ":minimize,maximize,close" && \
-    gsettings set org.gnome.software allow-updates false && \
-    flatpak uninstall --delete-data org.gnome.Extensions && \
     flatpak remote-add --if-not-exists --system flathub https://dl.flathub.org/repo/flathub.flatpakrepo --no-filter && \
     flatpak install --system flathub \
        org.videolan.VLC \
@@ -48,7 +45,6 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
        tv.kodi.Kodi \
        org.libretro.RetroArch \
        com.mattjakeman.ExtensionManager -y --noninteractive && \
-    gsettings set org.gnome.software packaging-format-preference "['flatpak:flathub', 'flatpak', 'rpm']" && \
     rpm-ostree cleanup -m && \
     ostree container commit 
 
