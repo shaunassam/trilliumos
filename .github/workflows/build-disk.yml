@@ -26,6 +26,7 @@ jobs:
         uses: ublue-os/titanoboa@main
         with:
           image-ref: ghcr.io/shaunassam/tuqueos:latest
+          flatpaks-list: ${{ github.workspace }}/flatpaks/system-flatpaks.list
           compression: squashfs
           builder-distro: fedora
       
