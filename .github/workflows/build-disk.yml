@@ -1,13 +1,9 @@
-name: Build and Upload ISO
+---
+name: Build tuqueOS ISO
 
 on:
   workflow_dispatch:
     inputs:
-      upload-to-s3:
-        description: "Upload to S3"
-        required: false
-        default: false
-        type: boolean
       platform:
         required: true
         type: choice
@@ -15,8 +11,20 @@ on:
           - amd64
           - arm64
   pull_request:
+    branches:
+      - main
     paths:
-      - ".github/workflows/build-disk.yml"
+      - "./disk_config/iso.toml"
+      - "./.github/workflows/build-iso.yml"
+      - "./Justfile"
+
+env:
+  IMAGE_REGISTRY: "ghcr.io/${{ github.repository }}"
+  DEFAULT_TAG: "latest"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -30,41 +38,45 @@ jobs:
       id-token: write
 
     steps:
+      - name: lower case the image registry in case of any capitalization
+        run: |
+          echo "IMAGE_REGISTRY=${IMAGE_REGISTRY,,}" >> ${GITHUB_ENV}
+
       - name: Install dependencies
         if: inputs.platform == 'arm64'
         run: |
           set -x
           sudo apt update -y
-          sudo apt install -y podman
-
-      - name: Maximize build space (remove-software)
-        if: matrix.platform != 'arm64'
-        uses: ublue-os/remove-unwanted-software@695eb75bc387dbcd9685a8e72d23439d8686cba6 # v10
+          sudo apt install -y \
+            podman
 
       - name: Maximize build space
-        uses: ublue-os/remove-unwanted-software@695eb75bc387dbcd9685a8e72d23439d8686cba6 # v10
+        if: inputs.platform != 'arm64'
+        uses: ublue-os/remove-unwanted-software@cc0becac701cf642c8f0a6613bbdaf5dc36b259e # v9
+        with:
+          remove-codeql: true
 
       - name: Checkout
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6
-        with:
-          submodules: recursive
+
+      - name: Setup Just
+        uses: extractions/setup-just@e33e0265a09d6d736e2ee1e0eb685ef1de4669ff # v3
 
       - name: Build ISO
-        id: build-iso # Assign an ID to reference outputs
-        uses: ublue-os/titanoboa@main
+        id: build
+        uses: ublue-os/bootc-image-builder-action@main
         with:
-          image-ref: ghcr.io/shaunassam/tuqueos:latest
-          flatpaks-list: ${{ github.workspace }}/flatpaks/system-flatpaks.list
-          kargs: ""
-          builder-distro: fedora
+          bootc-image-builder-image: ghcr.io/centos-workstation/bootc-image-builder:latest
+          use-librepo: true
+          config-file: ./iso.toml
+          image: ${{ env.IMAGE_REGISTRY }}:${{ env.DEFAULT_TAG }}
 
-      - name: Upload ISO artifact
+      - name: Upload ISOs and Checksum to Job Artifacts
         if: inputs.upload-to-s3 != true && github.event_name != 'pull_request'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         with:
-          name: tuqueos # Name of the artifact in the GitHub UI
-        # Titanoboa outputs the build directory path, which we use here
-          path: ${{ steps.build-iso.outputs.output-directory }} 
-          if-no-files-found: error # Fail the job if the ISO is not found
-          retention-days: 7 # Optional: Set the retention period (default 90 days)
+          path: ${{ steps.build.outputs.output-directory }}
+          if-no-files-found: error
+          retention-days: 0
+          compression-level: 0
           overwrite: true
