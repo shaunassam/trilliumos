@@ -1,6 +1,19 @@
 name: Build and Upload ISO
 
 on:
+  workflow_dispatch:
+    inputs:
+      upload-to-s3:
+        description: "Upload to S3"
+        required: false
+        default: false
+        type: boolean
+      platform:
+        required: true
+        type: choice
+        options:
+          - amd64
+          - arm64
   pull_request:
     paths:
       - ".github/workflows/build-disk.yml"
@@ -27,6 +40,7 @@ jobs:
           builder-distro: fedora
 
       - name: Upload ISO artifact
+        if: inputs.upload-to-s3 != true && github.event_name != 'pull_request'
         uses: actions/upload-artifact@v4
         with:
           name: tuqueos # Name of the artifact in the GitHub UI
@@ -34,3 +48,4 @@ jobs:
           path: ${{ steps.build-iso.outputs.output-directory }} 
           if-no-files-found: error # Fail the job if the ISO is not found
           retention-days: 7 # Optional: Set the retention period (default 90 days)
+          overwrite: true
