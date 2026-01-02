@@ -38,13 +38,6 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     rpm-ostree override remove firefox firefox-langpacks && \
     sed -i 's/#AutomaticUpdatePolicy.*/AutomaticUpdatePolicy=stage/' /etc/rpm-ostreed.conf && \
     flatpak remote-add --if-not-exists --system flathub https://dl.flathub.org/repo/flathub.flatpakrepo && \
-    flatpak install --system flathub \
-       org.videolan.VLC \
-       org.mozilla.firefox \
-       io.github.dvlv.boxbuddyrs \
-       tv.kodi.Kodi \
-       org.libretro.RetroArch \
-       com.mattjakeman.ExtensionManager -y --noninteractive && \
     rpm-ostree cleanup -m && \
     ostree container commit 
 
