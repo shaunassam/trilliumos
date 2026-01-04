@@ -30,7 +30,7 @@ dnf5 -y install gnome-shell-extension-logo-menu
 systemctl enable smb nmb
 
 #### Install Stable Kernel
-/ctx/base/01-replace-kernel.sh
+# /ctx/base/01-replace-kernel.sh
 
 # Install Overrides 
 /ctx/base/05-override-schemas.sh
