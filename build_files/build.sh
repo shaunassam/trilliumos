@@ -10,8 +10,7 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # Adding Fedora Workstation and additional packages
-dnf5 install -y gnome-tweaks distrobox flatpak vim-enhanced samba fuse-sshfs \
-  nss-mdns avahi-dnsconfd dbus-broker plymouth plymouth-theme-spinner \
+dnf5 install -y epel-release gnome-tweaks distrobox flatpak vim-enhanced samba fuse-sshfs \
   gnome-shell-extension-dash-to-dock gnome-shell-extension-just-perfection gnome-shell-extension-appindicator \
   gnome-shell-extension-apps-menu gnome-shell-extension-places-menu \
   vlc vlc-plugins-all ffmpeg-free flac faad2 lame libmad
