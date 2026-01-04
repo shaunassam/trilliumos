@@ -11,11 +11,11 @@ picture-uri-dark='file:///usr/share/backgrounds/true-north-night.jpg'
 allow-updates=false
 download-updates=false
 first-run=false
-packaging-format-preference='["flatpak:flathub", "flatpak", "rpm"]'
+packaging-format-preference=["flatpak:flathub", "flatpak", "rpm"]
 
 [org.gnome.shell]
-enabled-extensions=['appindicatorsupport@rgcjonas.gmail.com', 'dash-to-dock@micxgx.gmail.com', 'logomenu@aryan_k', 'fildemGMenu@gonza.com']
-favorite-apps=['org.gnome.Nautilus.desktop', 'org.gnome.Ptyxis.desktop', 'org.mozilla.firefox.desktop', 'org.gnome.TextEditor.desktop', 'org.gnome.Software.desktop', 'org.gnome.Settings.desktop']
+enabled-extensions=['appindicatorsupport@rgcjonas.gmail.com', 'dash-to-dock@micxgx.gmail.com']
+favorite-apps=['org.gnome.Nautilus.desktop', 'org.gnome.Ptyxis.desktop', 'org.mozilla.firefox.desktop', org.mozilla.Thunderbird.desktop, 'org.gnome.TextEditor.desktop', 'org.gnome.Software.desktop', 'org.gnome.Settings.desktop']
 
 [org.gnome.desktop.wm.preferences]
 button-layout='appmenu:minimize,maximize,close'
