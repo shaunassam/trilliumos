@@ -10,8 +10,7 @@ RUN --mount=type=tmpfs,dst=/opt \
     --mount=type=tmpfs,dst=/boot \
     --mount=type=bind,from=ctx,source=/,target=/ctx \
     /ctx/build.sh && \
-
-RUN sed -i 's/#AutomaticUpdatePolicy.*/AutomaticUpdatePolicy=stage/' /etc/rpm-ostreed.conf && \
+    sed -i 's/#AutomaticUpdatePolicy.*/AutomaticUpdatePolicy=stage/' /etc/rpm-ostreed.conf && \
     sed -i 's/#LockLayering.*/LockLayering=true/' /etc/rpm-ostreed.conf && \
     rpm-ostree cleanup -m && \
     ostree container commit 
