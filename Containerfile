@@ -44,8 +44,6 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     rpm-ostree cleanup -m && \
     ostree container commit 
 
-RUN dconf update
-
 ### LINTING
 ## Verify final image and contents are correct.
 RUN bootc container lint
