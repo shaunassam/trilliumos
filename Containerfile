@@ -4,12 +4,13 @@ COPY build_files /
 
 FROM quay.io/centos-bootc/centos-bootc:stream10
 
-RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
-    --mount=type=cache,dst=/var/cache \
-    --mount=type=cache,dst=/var/log \
+RUN --mount=type=tmpfs,dst=/opt \
     --mount=type=tmpfs,dst=/tmp \
+    --mount=type=tmpfs,dst=/var \
+    --mount=type=tmpfs,dst=/boot \
+    --mount=type=bind,from=ctx,source=/,target=/ctx \
     /ctx/build.sh && \
-    
+
 RUN sed -i 's/#AutomaticUpdatePolicy.*/AutomaticUpdatePolicy=stage/' /etc/rpm-ostreed.conf && \
     sed -i 's/#LockLayering.*/LockLayering=true/' /etc/rpm-ostreed.conf && \
     rpm-ostree cleanup -m && \
