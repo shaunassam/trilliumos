@@ -9,99 +9,143 @@ tee /usr/share/glib-2.0/schemas/zz1-tuqueos-desktop-modifications.gschema.overri
 picture-uri='file:///usr/share/backgrounds/jasper.jpg'
 picture-uri-dark='file:///usr/share/backgrounds/jasper.jpg'
 
-[org.gnome.software]
-allow-updates=false
-download-updates=false
-first-run=false
-packaging-format-preference=["flatpak:flathub", "flatpak"]
+[org/gnome/Ptyxis]
+default-columns=uint32 86
+default-profile-uuid='9559f421ac4e8a13a3e958c2695b07f2'
+font-name='Source Code Pro 14'
+profile-uuids=['9559f421ac4e8a13a3e958c2695b07f2']
+restore-session=true
+restore-window-size=false
+use-system-font=false
+window-size=(uint32 86, uint32 25)
 
-[org.gnome.shell]
-enabled-extensions=['logomenu@aryan_k', 'appindicatorsupport@rgcjonas.gmail.com', 'dash-to-dock@micxgx.gmail.com', 'just-perfection-desktop@just-perfection', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'places-menu@gnome-shell-extensions.gcampax.github.com']
-favorite-apps=['org.gnome.Nautilus.desktop', 'org.gnome.Ptyxis.desktop', 'org.mozilla.firefox.desktop', org.mozilla.Thunderbird.desktop, 'org.gnome.TextEditor.desktop', 'org.gnome.Software.desktop', 'org.gnome.Settings.desktop']
+[org/gnome/control-center]
+last-panel='system'
+window-state=(980, 640, false)
 
-[org.gnome.desktop.wm.preferences]
+[org/gnome/desktop/app-folders]
+folder-children=['System', 'Utilities', 'YaST', 'Pardus']
+
+[org/gnome/desktop/app-folders/folders/Pardus]
+categories=['X-Pardus-Apps']
+name='X-Pardus-Apps.directory'
+translate=true
+
+[org/gnome/desktop/app-folders/folders/System]
+apps=['org.gnome.baobab.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.Logs.desktop', 'org.freedesktop.MalcontentControl.desktop', 'org.gnome.SystemMonitor.desktop']
+name='X-GNOME-Shell-System.directory'
+translate=true
+
+[org/gnome/desktop/app-folders/folders/Utilities]
+apps=['org.gnome.Connections.desktop', 'org.gnome.Papers.desktop', 'org.gnome.font-viewer.desktop', 'org.gnome.Loupe.desktop']
+name='X-GNOME-Shell-Utilities.directory'
+translate=true
+
+[org/gnome/desktop/app-folders/folders/YaST]
+categories=['X-SuSE-YaST']
+name='suse-yast.directory'
+translate=true
+
+[org/gnome/desktop/calendar]
+show-weekdate=true
+
+[org/gnome/desktop/input-sources]
+current=uint32 0
+sources=[('xkb', 'us')]
+
+[org/gnome/desktop/interface]
+clock-format='12h'
+clock-show-weekday=true
+enable-animations=true
+
+[org/gnome/desktop/notifications]
+application-children=['org-gnome-ptyxis', 'org-gnome-software', 'gnome-power-panel', 'gnome-about-panel']
+
+[org/gnome/desktop/notifications/application/gnome-about-panel]
+application-id='gnome-about-panel.desktop'
+
+[org/gnome/desktop/notifications/application/gnome-power-panel]
+application-id='gnome-power-panel.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-ptyxis]
+application-id='org.gnome.Ptyxis.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-software]
+application-id='org.gnome.Software.desktop'
+
+[org/gnome/desktop/privacy]
+report-technical-problems=false
+
+[org/gnome/desktop/session]
+idle-delay=uint32 0
+
+[org/gnome/desktop/wm/preferences]
 button-layout='appmenu:minimize,maximize,close'
 
-[org.gtk.settings.file-chooser]
-clock-format='12h'
+[org/gnome/gnome-system-monitor/proctree]
+col-26-visible=false
+col-26-width=0
 
-[org.gtk.gtk4.settings.file-chooser]
+[org/gnome/login-screen]
+enable-fingerprint-authentication=true
+enable-smartcard-authentication=false
+
+[org/gnome/nautilus/preferences]
+default-folder-viewer='icon-view'
+migrated-gtk-settings=true
+
+[org/gnome/nautilus/window-state]
+initial-size=(890, 550)
+
+[org/gnome/settings-daemon/plugins/color]
+night-light-schedule-automatic=false
+
+[org/gnome/settings-daemon/plugins/housekeeping]
+donation-reminder-last-shown=int64 1767588085943437
+
+[org/gnome/shell]
+enabled-extensions=['logomenu@aryan_k', 'appindicatorsupport@rgcjonas.gmail.com', 'dash-to-dock@micxgx.gmail.com', 'just-perfection-desktop@just-perfection']
+favorite-apps=['org.gnome.Nautilus.desktop', 'org.gnome.Ptyxis.desktop', 'org.mozilla.firefox.desktop', 'org.gnome.Software.desktop', 'org.gnome.Settings.desktop']
+last-selected-power-profile='performance'
+welcome-dialog-last-shown-version='49.1'
+
+[org/gnome/shell/extensions/Logo-menu]
+show-lockscreen=true
+show-power-options=true
+
+[org/gnome/shell/extensions/dash-to-dock]
+background-opacity=0.80000000000000004
+custom-theme-shrink=false
+dash-max-icon-size=42
+dock-position='BOTTOM'
+height-fraction=0.90000000000000002
+show-show-apps-button=true
+
+[org/gnome/shell/extensions/just-perfection]
+power-icon=false
+show-apps-button=true
+
+[org/gnome/software]
+allow-updates=true
+check-timestamp=int64 1767637558
+download-updates=true
+download-updates-notify=false
+first-run=false
+flatpak-purge-timestamp=int64 1767591689
+update-notification-timestamp=int64 1767573812
+
+[org/gnome/system/location]
+enabled=false
+
+[org/gnome/tweaks]
+show-extensions-notice=false
+
+[org/gtk/gtk4/settings/file-chooser]
+show-hidden=false
 sort-directories-first=true
 
-[org.gnome.nautilus.icon-view]
-default-zoom-level='small-plus'
-
-[org.gnome.nautilus.window-state]
-initial-size=(890, 550)
-initial-size-file-chooser=(890, 550)
-
-[org.gnome.settings-daemon/plugins/custom-keybindings/custom0]
-name='Terminal'
-binding='<Super>t'
-command='ptyxis --new-window'
-
-[org.gnome.shell.extensions.dash-to-dock]
-dock-fixed=false
-icon-size-fixed=true
-intellihide-mode='ALL_WINDOWS'
-show-apps-at-top=true
-custom-theme-shrink=true
-disable-overview-on-startup=true
-apply-custom-theme=true
-dash-max-icon-size=42
-click-action='minimize-or-overview'
-dock-position='BOTTOM'
-
-[org.gnome.shell.extensions.just-perfection]
-accent-color-icon=false
-accessibility-menu=true
-activities-button=true
-animation=1
-background-menu=true
-clock-menu=true
-clock-menu-position=1
-clock-menu-position-offset=20
-controls-manager-spacing-size=0
-dash=true
-dash-icon-size=0
-dash-separator=true
-double-super-to-appgrid=true
-invert-calendar-column-items=false
-notification-banner-position=2
-osd=true
-osd-position=3
-panel=true
-panel-button-padding-size=0
-panel-icon-size=0
-panel-in-overview=true
-panel-indicator-padding-size=0
-panel-notification-icon=false
-power-icon=false
-quick-settings=true
-ripple-box=true
-search=true
-show-apps-button=false
-startup-status=0
-support-notifier-type=0
-switcher-popup-delay=false
-theme=false
-window-demands-attention-focus=false
-window-picker-icon=true
-window-preview-caption=true
-window-preview-close-button=true
-workspace=true
-workspace-background-corner-size=1
-workspace-popup=true
-workspace-switcher-should-show=true
-workspaces-in-app-grid=true
-
-[org.gnome.shell.extensions.Logo-menu]
-menu-button-extensions-app='com.mattjakeman.ExtensionManager.desktop'
-menu-button-icon-image=1
-menu-button-terminal='ptyxis'
-show-activities-button=true
-symbolic-icon=true
-use-custom-icon=false
+[org/gtk/settings/file-chooser]
+clock-format='12h'
 EOF
 
 glib-compile-schemas /usr/share/glib-2.0/schemas
