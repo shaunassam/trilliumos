@@ -103,3 +103,5 @@ show-activities-button=true
 symbolic-icon=true
 use-custom-icon=false
 EOF
+
+glib-compile-schemas /usr/share/glib-2.0/schemas
