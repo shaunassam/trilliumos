@@ -9,6 +9,8 @@ set -ouex pipefail
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/39/x86_64/repoview/index.html&protocol=https&redirect=1
 
+dnf5 remove -y gnome-extensions-app
+
 # Adding Fedora Workstation and additional packages
 dnf5 install -y gnome-tweaks distrobox vim-enhanced samba fuse-sshfs dconf \
   gnome-shell-extension-dash-to-dock gnome-shell-extension-just-perfection gnome-shell-extension-appindicator \
