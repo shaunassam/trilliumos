@@ -64,13 +64,11 @@ jobs:
         uses: jasonn3/build-container-installer@main
         id: build
         with:
-          arch: ${{ env.ARCH}}
-          image_name: ${{ env.IMAGE_NAME}}
-          image_repo: ${{ env.IMAGE_REPO}}
-          image_tag: ${{ env.IMAGE_TAG }}
-          version: ${{ env.VERSION }}
-          variant: ${{ env.VARIANT }}
-          iso_name: ${{ env.IMAGE_NAME }}-${{ env.IMAGE_TAG }}-${{ env.VERSION }}.iso
+          arch: x86_64
+          image_name: tuqueos
+          image_repo: ghcr.io/shaunassam
+          image_tag: latest
+          iso_name: tuqueos-c10.iso
 
       - name: Rename and Checksum ISO
         run: |
