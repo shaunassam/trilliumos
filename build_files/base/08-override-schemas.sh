@@ -148,4 +148,4 @@ sort-directories-first=true
 clock-format='12h'
 EOF
 
-glib-compile-schemas /usr/share/glib-2.0/schemas
+glib-compile-schemas /usr/share/glib-2.0/schemas/
