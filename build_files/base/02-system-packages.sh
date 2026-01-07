@@ -68,7 +68,6 @@ dnf install -y \
     hplip \
     jetbrains-mono-fonts-all \
     just \
-    libgda-sqlite \
     nss-mdns \
     papers-thumbnailer \
     powertop \
