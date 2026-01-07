@@ -139,11 +139,14 @@ EOF
 # Container Image
 tee /usr/share/anaconda/post-scripts/install-configure-upgrade.ks <<EOF
 %post --erroronfail
-bootc switch --mutate-in-place --transport registry ghcr.io/shaunassam/tuqueos-el:latest
+bootc switch --mutate-in-place --enforce-container-sigpolicy --transport registry ghcr.io/shaunassam/tuqueos-el:latest
 %end
 EOF
 
 # Install Flatpaks
+# Set `flathub` as default
+flatpak remote-modify --system flathub --prio=2
+
 tee /usr/share/anaconda/post-scripts/install-flatpaks.ks <<'EOF'
 %post --erroronfail --nochroot
 deployment="$(ostree rev-parse --repo=/mnt/sysimage/ostree/repo ostree/0/1/0)"
