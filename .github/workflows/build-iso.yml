@@ -66,7 +66,7 @@ jobs:
         id: build
         with:
           arch: x86_64
-          image_name: tuqueos
+          image_name: tuqueos-el
           image_repo: ghcr.io/shaunassam
           image_tag: latest
           flatpak_remote_url: https://flathub.org/repo/flathub.flatpakrepo
