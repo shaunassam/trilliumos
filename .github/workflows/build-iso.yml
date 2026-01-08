@@ -15,7 +15,7 @@ on:
       - main
     paths:
       - "./.github/workflows/build-iso.yml"
-      - "./iso_files/configure-el-iso-anaconda.sh"
+      - "./disk_config/iso.toml"
 
 env:
   IMAGE_REGISTRY: "ghcr.io/${{ github.repository }}"
