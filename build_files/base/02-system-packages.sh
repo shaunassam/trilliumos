@@ -32,6 +32,8 @@ dnf install -y \
     gnome-shell-extension-appindicator \
     gnome-shell-extension-blur-my-shell \
     gnome-shell-extension-logo-menu \
+    gnome-shell-extension-desktop-icons-ng \
+    gnome-shell-extension-submenu-power-toggle \
     ffmpeg-free \
     flac \
     faad2 \
