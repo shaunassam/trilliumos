@@ -10,16 +10,10 @@ tee /etc/dconf/db/local.d/01-tuqueos-defaults << EOF
 picture-uri='file:///usr/share/backgrounds/jasper.jpg'
 picture-uri-dark='file:///usr/share/backgrounds/jasper.jpg'
 
-[org/gnome/Chess]
-height=550
-last-played-as='white'
-maximized=false
-width=700
-
 [org/gnome/Ptyxis]
 default-columns=uint32 86
 default-profile-uuid='9559f421ac4e8a13a3e958c2695b07f2'
-font-name='Source Code Pro 14'
+font-name='Red Hat Mono 14'
 interface-style='dark'
 profile-uuids=['9559f421ac4e8a13a3e958c2695b07f2']
 restore-session=true
@@ -27,22 +21,14 @@ restore-window-size=false
 use-system-font=false
 window-size=(uint32 86, uint32 24)
 
+[Profiles/9559f421ac4e8a13a3e958c2695b07f2]
+palette='dracula'
+
 [org/gnome/TextEditor]
 show-line-numbers=true
 
-[org/gnome/Weather]
-locations=[<(uint32 2, <('Toronto', 'CYTZ', true, [(0.76154532446909495, -1.3857914260834978)], [(0.76212711252195475, -1.3860823201099277)])>)>]
-window-height=506
-window-maximized=false
-window-width=587
-
-[org/gnome/calendar]
-active-view='month'
-window-maximized=true
-window-size=(768, 600)
-
 [org/gnome/control-center]
-last-panel='power'
+last-panel='system'
 window-state=(980, 640, false)
 
 [org/gnome/desktop/app-folders]
@@ -55,13 +41,13 @@ translate=true
 
 [org/gnome/desktop/app-folders/folders/System]
 apps=['org.gnome.baobab.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.Logs.desktop', 'org.freedesktop.MalcontentControl.desktop', 'org.gnome.SystemMonitor.desktop', 'org.gnome.Firmware.desktop']
-name='X-GNOME-Shell-System.directory'
-translate=true
+name='System'
+translate=false
 
 [org/gnome/desktop/app-folders/folders/Utilities]
 apps=['org.gnome.Connections.desktop', 'org.gnome.Papers.desktop', 'org.gnome.font-viewer.desktop', 'org.gnome.Loupe.desktop']
-name='X-GNOME-Shell-Utilities.directory'
-translate=true
+name='Utilities'
+translate=false
 
 [org/gnome/desktop/app-folders/folders/YaST]
 categories=['X-SuSE-YaST']
@@ -146,7 +132,7 @@ col-26-visible=false
 col-26-width=0
 
 [org/gnome/login-screen]
-enable-fingerprint-authentication=false
+enable-fingerprint-authentication=true
 enable-smartcard-authentication=false
 
 [org/gnome/maps]
@@ -175,29 +161,6 @@ ignore-phase2-ca-cert=false
 ignore-ca-cert=false
 ignore-phase2-ca-cert=false
 
-[org/gnome/rhythmbox]
-position=(26, 23)
-size=(1104, 700)
-
-[org/gnome/rhythmbox/player]
-volume=1.0
-
-[org/gnome/rhythmbox/plugins]
-active-plugins=['rb', 'power-manager', 'notification', 'mtpdevice', 'mpris', 'iradio', 'ipod', 'generic-player', 'dbus-media-server', 'cd-recorder', 'audioscrobbler', 'audiocd', 'android', 'artsearch']
-seen-plugins=['rb', 'webremote', 'replaygain', 'rbzeitgeist', 'pythonconsole', 'notification', 'mtpdevice', 'ipod', 'grilo', 'fmradio', 'dbus-media-server', 'daap', 'cd-recorder', 'audioscrobbler', 'artsearch', 'im-status', 'listenbrainz', 'lyrics', 'magnatune']
-
-[org/gnome/rhythmbox/plugins/audioscrobbler/Last.fm]
-scrobbling-enabled=true
-
-[org/gnome/rhythmbox/plugins/audioscrobbler/Libre.fm]
-scrobbling-enabled=true
-
-[org/gnome/rhythmbox/plugins/iradio]
-initial-stations-loaded=true
-
-[org/gnome/rhythmbox/rhythmdb]
-locations=['file:///var/home/student/Music']
-
 [org/gnome/settings-daemon/plugins/color]
 night-light-schedule-automatic=false
 
@@ -209,100 +172,92 @@ sleep-inactive-ac-timeout=3600
 sleep-inactive-ac-type='nothing'
 
 [org/gnome/shell]
-app-picker-layout=[{'org.gnome.Extensions.desktop': <{'position': <0>}>, 'org.gnome.Yelp.desktop': <{'position': <1>}>, 'org.gnome.TextEditor.desktop': <{'position': <2>}>, 'System': <{'position': <3>}>, 'org.gnome.Tour.desktop': <{'position': <4>}>, 'com.mattjakeman.ExtensionManager.desktop': <{'position': <5>}>, 'org.gnome.tweaks.desktop': <{'position': <6>}>}]
-disabled-extensions=@as []
-enabled-extensions=['logomenu@aryan_k', 'appindicatorsupport@rgcjonas.gmail.com', 'dash-to-dock@micxgx.gmail.com', 'just-perfection-desktop@just-perfection', 'blur-my-shell@aunetx', 'BringOutSubmenuOfPowerOffLogoutButton@pratap.fastmail.fm', 'ding@rastersoft.com']
-favorite-apps=['org.gnome.Nautilus.desktop', 'org.gnome.Ptyxis.desktop', 'org.mozilla.firefox.desktop', 'net.thunderbird.Thunderbird.desktop', 'org.gnome.Calendar.desktop', 'org.gnome.Contacts.desktop', 'org.gnome.Maps.desktop', 'org.gnome.Loupe.desktop', 'org.gnome.Rhythmbox3.desktop', 'vlc.desktop', 'org.gnome.Software.desktop', 'org.gnome.Settings.desktop']
+app-picker-layout=[{'org.gnome.TextEditor.desktop': <{'position': <0>}>, 'System': <{'position': <1>}>, 'org.gnome.Tour.desktop': <{'position': <2>}>, 'com.mattjakeman.ExtensionManager.desktop': <{'position': <3>}>, 'org.gnome.tweaks.desktop': <{'position': <4>}>, 'org.gnome.Calculator.desktop': <{'position': <5>}>, 'org.gnome.Snapshot.desktop': <{'position': <6>}>, 'org.gnome.Characters.desktop': <{'position': <7>}>, 'org.gnome.clocks.desktop': <{'position': <8>}>, 'Utilities': <{'position': <9>}>, 'org.gnome.Rhythmbox3.desktop': <{'position': <10>}>}]
+enabled-extensions=['dash-to-panel@jderose9.github.com', 'arcmenu@arcmenu.com', 'gsconnect@andyholmes.github.io', 'ding@rastersoft.com', 'appindicatorsupport@rgcjonas.gmail.com']
+favorite-apps=['org.gnome.Nautilus.desktop', 'org.gnome.Ptyxis.desktop', 'org.mozilla.firefox.desktop', 'org.mozilla.Thunderbird.desktop', 'org.gnome.Evolution.desktop', 'org.gnome.TextEditor.desktop', 'org.gnome.Software.desktop']
 last-selected-power-profile='performance'
-welcome-dialog-last-shown-version='49.1'
 
-[org/gnome/shell/extensions/Logo-menu]
-menu-button-icon-image=0
-show-lockscreen=true
-show-power-options=true
-symbolic-icon=false
-use-custom-icon=false
+[org/gnome/shell/extensions/arcmenu]
+dash-to-panel-standalone=false
+hide-overview-on-startup=true
+menu-button-icon='fedora-logo-icon'
+menu-button-icon-size=40
+menu-button-padding=2
+menu-layout='Elementary'
+multi-monitor=false
+pop-folders-data={'Library Home': 'Library Home', 'Utilities': 'Utilities'}
+prefs-visible-page=0
+recently-installed-apps=['org.gnome.Calendar.desktop', 'org.gnome.Snapshot.desktop', 'org.gnome.Connections.desktop', 'org.gnome.Contacts.desktop', 'org.mozilla.firefox.desktop']
+search-entry-border-radius=(true, 25)
+show-activities-button=true
+update-notifier-project-version=70
 
-[org/gnome/shell/extensions/blur-my-shell]
-settings-version=2
+[org/gnome/shell/extensions/dash-to-panel]
+animate-appicon-hover-animation-extent={'RIPPLE': 4, 'PLANK': 4, 'SIMPLE': 1}
+appicon-margin=3
+appicon-padding=3
+appicon-style='NORMAL'
+dot-position='BOTTOM'
+dot-style-focused='METRO'
+dot-style-unfocused='METRO'
+extension-version=72
+global-border-radius=0
+hide-overview-on-startup=true
+hotkeys-overlay-combo='TEMPORARILY'
+leftbox-padding=-1
+panel-anchors='{"unknown-unknown":"MIDDLE"}'
+panel-element-positions='{"unknown-unknown":[{"element":"leftBox","visible":true,"position":"stackedTL"},{"element":"showAppsButton","visible":false,"position":"stackedTL"},{"element":"taskbar","visible":true,"position":"stackedTL"},{"element":"centerBox","visible":false,"position":"stackedBR"},{"element":"rightBox","visible":false,"position":"stackedBR"},{"element":"activitiesButton","visible":true,"position":"stackedBR"},{"element":"dateMenu","visible":true,"position":"stackedBR"},{"element":"systemMenu","visible":true,"position":"stackedBR"},{"element":"desktopButton","visible":true,"position":"stackedBR"}]}'
+panel-lengths='{"unknown-unknown":100}'
+panel-positions='{"unknown-unknown":"BOTTOM"}'
+panel-sizes='{"unknown-unknown":42}'
+prefs-opened=false
+progress-show-count=true
+show-apps-icon-side-padding=3
+show-favorites=true
+show-favorites-all-monitors=true
+show-running-apps=true
+status-icon-padding=3
+trans-bg-color='#2e2e2e'
+trans-border-use-custom-color=false
+trans-border-width=1
+trans-dynamic-anim-target=0.5
+trans-panel-opacity=0.90000000000000002
+trans-use-border=false
+trans-use-custom-bg=true
+trans-use-custom-opacity=false
+trans-use-dynamic-opacity=false
+tray-padding=3
+window-preview-title-position='TOP'
 
-[org/gnome/shell/extensions/blur-my-shell/appfolder]
-brightness=0.59999999999999998
-sigma=30
+[org/gnome/shell/extensions/gsconnect]
+enabled=false
+missing-openssl=false
+name='localhost.localdomain'
+show-indicators=false
 
-[org/gnome/shell/extensions/blur-my-shell/coverflow-alt-tab]
-pipeline='pipeline_default'
-
-[org/gnome/shell/extensions/blur-my-shell/dash-to-dock]
-blur=true
-override-background=true
-pipeline='pipeline_default_rounded'
-
-[org/gnome/shell/extensions/blur-my-shell/lockscreen]
-pipeline='pipeline_default'
-
-[org/gnome/shell/extensions/blur-my-shell/overview]
-pipeline='pipeline_default'
-
-[org/gnome/shell/extensions/blur-my-shell/panel]
-brightness=0.59999999999999998
-pipeline='pipeline_default'
-sigma=30
-
-[org/gnome/shell/extensions/blur-my-shell/screenshot]
-pipeline='pipeline_default'
-
-[org/gnome/shell/extensions/blur-my-shell/window-list]
-brightness=0.59999999999999998
-sigma=30
-
-[org/gnome/shell/extensions/bring-out-submenu-of-power-off-logout]
-hide-lock-button=true
-hide-logout-button=true
-hide-power-button=true
-hide-restart-button=true
-hide-suspend-button=true
-hide-switch-user-button=true
-
-[org/gnome/shell/extensions/dash-to-dock]
-apply-custom-theme=true
-background-opacity=0.80000000000000004
-custom-theme-shrink=false
-dash-max-icon-size=42
-disable-overview-on-startup=true
-dock-position='BOTTOM'
-height-fraction=0.90000000000000002
-preferred-monitor=-2
-preferred-monitor-by-connector='Virtual-1'
-show-apps-at-top=true
-show-show-apps-button=true
+[org/gnome/shell/extensions/gsconnect/preferences]
+window-maximized=false
+window-size=(640, 550)
 
 [org/gnome/shell/extensions/ding]
+add-volumes-opposite=false
 check-x11wayland=true
+dark-text-in-labels=false
+show-home=true
 show-network-volumes=true
 show-trash=false
 start-corner='top-right'
 
-[org/gnome/shell/extensions/just-perfection]
-clock-menu-position=0
-clock-menu-position-offset=20
-notification-banner-position=2
-osd-position=3
-power-icon=false
-show-apps-button=true
-startup-status=0
-workspace-switcher-should-show=false
-
 [org/gnome/shell/weather]
 automatic-location=true
-locations=[<(uint32 2, <('Toronto', 'CYTZ', true, [(0.76154532446909495, -1.3857914260834978)], [(0.76212711252195475, -1.3860823201099277)])>)>]
+locations=@av []
 
 [org/gnome/shell/world-clocks]
 locations=@av []
 
 [org/gnome/software]
 allow-updates=true
-check-timestamp=int64 1769773581
+check-timestamp=int64 1770141381
 download-updates=true
 download-updates-notify=true
 first-run=false

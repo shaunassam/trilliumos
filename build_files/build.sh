@@ -2,8 +2,11 @@
 
 set -ouex pipefail
 
+# Set logo and name details
+/ctx/base/00-image-info.sh
+
 # Enable repos
-/ctx/base/01-enable-repos.sh
+/ctx/base/01-pre-setup.sh
 
 # Install packages
 /ctx/base/02-system-packages.sh
