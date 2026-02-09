@@ -3,7 +3,6 @@ org.mozilla.Thunderbird
 com.mattjakeman.ExtensionManager
 com.ranfdev.DistroShelf
 app/org.gnome.Firmware
-app/com.github.tchx84.Flatseal
 org.gnome.Calculator
 org.gnome.Calendar
 org.gnome.Snapshot
